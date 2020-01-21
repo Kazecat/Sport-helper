@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29609.76
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sport helper", "Sport helper\Sport helper.csproj", "{A30041D6-17B4-4D0C-90A9-ED8CC9F1B0DB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2674DD3E-5318-4619-9AB9-FC4A12CF33AA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppLogic", "..\Sport logic\Sport logic\AppLogic.csproj", "{B3B49D6F-F292-4AA9-BBC1-088CD215CD24}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A30041D6-17B4-4D0C-90A9-ED8CC9F1B0DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A30041D6-17B4-4D0C-90A9-ED8CC9F1B0DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A30041D6-17B4-4D0C-90A9-ED8CC9F1B0DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A30041D6-17B4-4D0C-90A9-ED8CC9F1B0DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3B49D6F-F292-4AA9-BBC1-088CD215CD24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3B49D6F-F292-4AA9-BBC1-088CD215CD24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3B49D6F-F292-4AA9-BBC1-088CD215CD24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3B49D6F-F292-4AA9-BBC1-088CD215CD24}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {99A92E33-432E-4BD6-8BE0-9550A27B4CD9}
+	EndGlobalSection
+EndGlobal

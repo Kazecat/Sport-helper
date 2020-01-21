@@ -1,0 +1,71 @@
+﻿<Window x:Class="Sport_helper.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Sport_helper"
+        mc:Ignorable="d"
+        Title="MainWindow" MinHeight="450" MinWidth="1200" Height="600" Width="1200">
+    <Grid Background="Gray">
+        <!--Definicja kolumn-->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="1.5*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="1.1*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <!--Definicja wierszy-->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <!--Obiekty w pierwszym wierszu-->
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="Podopieczny" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" />
+        <ComboBox x:Name="NameBox" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Height="25" Width="Auto" Margin="10,0" IsEditable="True"/>
+        <TextBlock Grid.Row="0" Grid.Column="1" Text="Ćwiczenie" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+        <ComboBox x:Name="ExerciseBox" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Height="25" Width="Auto" Margin="10,0" IsEditable="True"/>
+        <TextBlock Grid.Row="0" Grid.Column="2" Text="Data" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+        <DatePicker x:Name="Date" Grid.Row="0" Grid.Column="2" Margin="0" FontSize="15" FontWeight="Bold" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Height="30" Width="Auto">
+            <DatePicker.Resources>
+                <Style TargetType="{x:Type DatePickerTextBox}">
+                    <Setter Property="Control.Template">
+                        <Setter.Value>
+                            <ControlTemplate>
+                                <TextBox x:Name="Date" 
+                                     Text="{Binding Path=SelectedDate, RelativeSource={RelativeSource AncestorType={x:Type DatePicker}}}" />
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </DatePicker.Resources>
+        </DatePicker>
+        <TextBlock Grid.Row="0" Grid.Column="3" Text="Ilość serii" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Margin="5,0"/>
+        <TextBox x:Name="SeriesBox" Grid.Row="0" Grid.Column="3" Width="Auto" Height="25" Margin="5,0" VerticalAlignment="Bottom"/>
+        <TextBlock Grid.Row="0" Grid.Column="4" Text="Ilość potwórzeń" FontSize="17" FontWeight="Bold" HorizontalAlignment="Center" TextWrapping="Wrap" Margin="5,0"/>
+        <TextBox x:Name="RepetitionsBox" Grid.Row="0" Grid.Column="4" Width="Auto" Height="25" Margin="5,0" VerticalAlignment="Bottom"/>
+        <TextBlock Grid.Row="0" Grid.Column="5" Text="Ciężar" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+        <TextBox x:Name="WeightBox" Grid.Row="0" Grid.Column="5" Width="Auto" Height="25" Margin="5,0" VerticalAlignment="Bottom"/>
+        <!--Obiekty w drugim wierszu-->
+        <Button x:Name="AddRecordButton" Grid.Row="1" Grid.Column="0" FontSize="20" VerticalAlignment="Top" Height="35" Width="Auto" Content="Dodaj rekord" Margin="10,58,10,0" VerticalContentAlignment="Center" Click="AddRecordButton_Click"/>
+        <Button x:Name="DeleteRecordButton" Grid.Row="1" Grid.Column="1" FontSize="20" VerticalAlignment="Top" Height="35" Width="Auto" Content="Usuń rekord" Margin="10,10,10,0" Click="DeleteRecordButton_Click"/>
+        <Button x:Name="EditRecordButton" Grid.Row="1" Grid.Column="1" FontSize="20" VerticalAlignment="Top" Height="40" Width="Auto" Content="Edytuj rekord" Margin="10,53,10,0" Click="EditRecordButton_Click"/>
+        <Button x:Name="LoadRecordButton" Grid.Row="1" Grid.Column="0" FontSize="20" Width="Auto" Content="Wczytaj dane" Click="LoadRecordButton_Click" Margin="10,10,10,44" Height="40" VerticalAlignment="Top" IsEnabled="False"/>
+        <!--Obiekty w Trzecim wierszu-->
+        <ListView x:Name="RecordsListView" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="6" Margin="10,25,10,20" FontSize="15" IsEnabled="True" SelectionChanged="RecordsListView_SelectionChanged">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Osoba" Width="200" DisplayMemberBinding="{Binding Name}"/>
+                    <GridViewColumn Header="Ćwiczenie" Width="200" DisplayMemberBinding="{Binding Exercise}"/>
+                    <GridViewColumn Header="Data" Width="100" DisplayMemberBinding="{Binding Date}"/>
+                    <GridViewColumn Header="Serie" Width="50" DisplayMemberBinding="{Binding Series}"/>
+                    <GridViewColumn Header="Potwórzenia" Width="85" DisplayMemberBinding="{Binding Repetitions}"/>
+                    <GridViewColumn Header="Ciężar" Width="100" DisplayMemberBinding="{Binding Weight}"/>
+                    <GridViewColumn Header="Id" Width="100" DisplayMemberBinding="{Binding Id}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Window>
