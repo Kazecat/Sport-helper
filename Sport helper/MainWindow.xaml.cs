@@ -28,22 +28,28 @@ namespace Sport_helper
             recordsListing = new RecordsListing(con.Connect());
            //MainAsync().Wait();
             LoadRecords();
+            
         }
-
+        //wczytywanie rekordów z tabeli
        private void LoadRecordButton_Click(object sender, RoutedEventArgs e)
         {
             LoadRecords();
         }
-        //add record to table
+        //dodawanie rekordu do tabeli
         private void AddRecordButton_Click(object sender, RoutedEventArgs e)
         {
+            //walidacja brakujących pól
             if (ValidateInputFields())
             {
+                //walidacja formatu daty
                 if (ValidateInputFormat())
                 {
+                        //dodanie rekordu
                         AddRecord addRecord = new AddRecord(con.Connect());
                         addRecord.AddRec(fieldsData);
                         LoadRecords();
+                        //czyszczenie tekstu z pól po wykorzystaniu
+                        ClearingBoxes();
                 }
             }
 
@@ -65,7 +71,7 @@ namespace Sport_helper
 
             return true;
         }
-        //read input from fields
+        //odczyt danych wejściowych
         private List<object> GetherInputData()
         {
             fieldsData = new List<object>();
@@ -85,22 +91,7 @@ namespace Sport_helper
             //prepare Data as an object
             var dataFormat = fieldsData[2].ToString().Substring(0, 10);
             fieldsData[2] = DateTime.Parse(dataFormat);
-            //check if numbers fields are really numbers
-            for (int i = 3; i < 6; i++)
-            {
-                bool check = int.TryParse(fieldsData[i].ToString(), out int receivedNumber);
 
-                if (!check)
-                {
-                    MessageBox.Show("Popraw " + inputFields[i] + "!!");
-                    return false;
-                }
-                else
-                {
-                    fieldsData[i] = receivedNumber;
-                }
-
-            }
             return true;
         }
 
@@ -113,6 +104,7 @@ namespace Sport_helper
                 DeleteRecord deleteRecord = new DeleteRecord(con.Connect());
                 deleteRecord.Delete(FindId());
                 LoadRecords();
+                ClearingBoxes();
             }
             else
             {
@@ -131,11 +123,13 @@ namespace Sport_helper
             //dodanie nowych rekordów do widoku
             RecordsListView.ItemsSource = recordsListing.items;
 
-            //sortowanie po dacie
+            //sortowanie po dacie malejąco
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(RecordsListView.ItemsSource);
-            view.SortDescriptions.Add(new SortDescription("Date", ListSortDirection.Ascending));
+            view.SortDescriptions.Add(new SortDescription("Date", ListSortDirection.Descending));
 
+            //wystwietlanie istniejacych osób
             NameBox.ItemsSource = recordsListing.namesList;
+            //wyswietlanie istniejących ćwiczeń
             ExerciseBox.ItemsSource = recordsListing.exerciseList;
         }
 
@@ -172,6 +166,7 @@ namespace Sport_helper
                         editRecord.EditRec(fieldsData, FindId());
                         RecordsListView.SelectedIndex = -1;
                         LoadRecords();
+                        ClearingBoxes();
                     }
                 }
             }
@@ -181,6 +176,7 @@ namespace Sport_helper
             }
         }
 
+        //wstawienie aktualnych danych rekordu który chcemy zmodyfikować
         private void RecordsListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             DataForListView record = RecordsListView.SelectedValue as DataForListView;
@@ -193,6 +189,16 @@ namespace Sport_helper
                 RepetitionsBox.Text = record.Repetitions;
                 WeightBox.Text = record.Weight;
             }
+        }
+
+        private void ClearingBoxes()
+        {
+            NameBox.Text = "";
+            ExerciseBox.Text = "";
+            Date.SelectedDate = DateTime.Today;
+            SeriesBox.Text = "";
+            RepetitionsBox.Text = "";
+            WeightBox.Text = "";
         }
     }
 

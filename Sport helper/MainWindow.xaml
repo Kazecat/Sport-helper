@@ -55,6 +55,10 @@
         <Button x:Name="LoadRecordButton" Grid.Row="1" Grid.Column="0" FontSize="20" Width="Auto" Content="Wczytaj dane" Click="LoadRecordButton_Click" Margin="10,10,10,44" Height="40" VerticalAlignment="Top" IsEnabled="False"/>
         <!--Obiekty w Trzecim wierszu-->
         <ListView x:Name="RecordsListView" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="6" Margin="10,25,10,20" FontSize="15" IsEnabled="True" SelectionChanged="RecordsListView_SelectionChanged">
+            <ListView.Resources>
+                <BooleanToVisibilityConverter x:Key="BoolToVisibility" />
+                
+            </ListView.Resources>
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Osoba" Width="200" DisplayMemberBinding="{Binding Name}"/>
@@ -63,7 +67,13 @@
                     <GridViewColumn Header="Serie" Width="50" DisplayMemberBinding="{Binding Series}"/>
                     <GridViewColumn Header="Potwórzenia" Width="85" DisplayMemberBinding="{Binding Repetitions}"/>
                     <GridViewColumn Header="Ciężar" Width="100" DisplayMemberBinding="{Binding Weight}"/>
-                    <GridViewColumn Header="Id" Width="100" DisplayMemberBinding="{Binding Id}"/>
+                    <GridViewColumn Header="Id" Width="0" DisplayMemberBinding="{Binding Id}">
+                        <GridViewColumn.HeaderContainerStyle>
+                            <Style TargetType="GridViewColumnHeader">
+                                <Setter Property="IsEnabled" Value="False"/>
+                            </Style>
+                        </GridViewColumn.HeaderContainerStyle>                        
+                    </GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>

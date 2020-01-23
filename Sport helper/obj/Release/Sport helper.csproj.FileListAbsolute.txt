@@ -1,0 +1,21 @@
+C:\Users\bartosz.pytlowany\source\repos\Sport helper\Sport helper\bin\Release\Sport helper.exe.config
+C:\Users\bartosz.pytlowany\source\repos\Sport helper\Sport helper\bin\Release\Sport helper.exe
+C:\Users\bartosz.pytlowany\source\repos\Sport helper\Sport helper\bin\Release\Sport helper.pdb
+C:\Users\bartosz.pytlowany\source\repos\Sport helper\Sport helper\bin\Release\AirtableApiClient.dll
+C:\Users\bartosz.pytlowany\source\repos\Sport helper\Sport helper\bin\Release\Newtonsoft.Json.dll
+C:\Users\bartosz.pytlowany\source\repos\Sport helper\Sport helper\bin\Release\Sport logic.dll
+C:\Users\bartosz.pytlowany\source\repos\Sport helper\Sport helper\bin\Release\Sport logic.pdb
+C:\Users\bartosz.pytlowany\source\repos\Sport helper\Sport helper\bin\Release\Sport logic.dll.config
+C:\Users\bartosz.pytlowany\source\repos\Sport helper\Sport helper\bin\Release\Newtonsoft.Json.xml
+C:\Users\bartosz.pytlowany\source\repos\Sport helper\Sport helper\obj\Release\Sport helper.csprojAssemblyReference.cache
+C:\Users\bartosz.pytlowany\source\repos\Sport helper\Sport helper\obj\Release\MainWindow.g.cs
+C:\Users\bartosz.pytlowany\source\repos\Sport helper\Sport helper\obj\Release\App.g.cs
+C:\Users\bartosz.pytlowany\source\repos\Sport helper\Sport helper\obj\Release\Sport helper_MarkupCompile.cache
+C:\Users\bartosz.pytlowany\source\repos\Sport helper\Sport helper\obj\Release\Sport helper_MarkupCompile.lref
+C:\Users\bartosz.pytlowany\source\repos\Sport helper\Sport helper\obj\Release\MainWindow.baml
+C:\Users\bartosz.pytlowany\source\repos\Sport helper\Sport helper\obj\Release\Sport helper.g.resources
+C:\Users\bartosz.pytlowany\source\repos\Sport helper\Sport helper\obj\Release\Sport_helper.Properties.Resources.resources
+C:\Users\bartosz.pytlowany\source\repos\Sport helper\Sport helper\obj\Release\Sport helper.csproj.GenerateResource.cache
+C:\Users\bartosz.pytlowany\source\repos\Sport helper\Sport helper\obj\Release\Sport helper.csproj.CopyComplete
+C:\Users\bartosz.pytlowany\source\repos\Sport helper\Sport helper\obj\Release\Sport helper.exe
+C:\Users\bartosz.pytlowany\source\repos\Sport helper\Sport helper\obj\Release\Sport helper.pdb
