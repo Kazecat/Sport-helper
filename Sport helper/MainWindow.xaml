@@ -52,15 +52,15 @@
         <Button x:Name="AddRecordButton" Grid.Row="1" Grid.Column="0" FontSize="20" VerticalAlignment="Top" Height="35" Width="Auto" Content="Dodaj rekord" Margin="10,58,10,0" VerticalContentAlignment="Center" Click="AddRecordButton_Click"/>
         <Button x:Name="DeleteRecordButton" Grid.Row="1" Grid.Column="1" FontSize="20" VerticalAlignment="Top" Height="35" Width="Auto" Content="Usuń rekord" Margin="10,10,10,0" Click="DeleteRecordButton_Click"/>
         <Button x:Name="EditRecordButton" Grid.Row="1" Grid.Column="1" FontSize="20" VerticalAlignment="Top" Height="40" Width="Auto" Content="Edytuj rekord" Margin="10,53,10,0" Click="EditRecordButton_Click"/>
-        <Button x:Name="LoadRecordButton" Grid.Row="1" Grid.Column="0" FontSize="20" Width="Auto" Content="Filtruj dane" Click="LoadRecordButton_Click" Margin="10,10,10,44" Height="40" VerticalAlignment="Top" IsEnabled="False"/>
+        <Button x:Name="LoadRecordButton" Grid.Row="1" Grid.Column="0" FontSize="20" Width="Auto" Content="Filtruj dane" Click="LoadRecordButton_Click" Margin="10,10,10,44" Height="40" VerticalAlignment="Top"/>
         <!--filtry-->
         <TextBlock Grid.Row="1" Grid.Column="2" Text="Filtry" FontSize="25" FontWeight="Bold" HorizontalAlignment="Center" Margin="73,0,73,67"/>
         <TextBlock Grid.Row="1" Grid.Column="2" Text="Podopieczny" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Margin="45,30,45,43"/>
-        <ComboBox x:Name="NameFiltr" Grid.Row="1" Grid.Column="2" Width="180" IsEditable="False" Margin="10,5" Height="30" VerticalAlignment="Bottom"/>
+        <ComboBox x:Name="NameFilter" Grid.Row="1" Grid.Column="2" Width="180" IsEditable="False" Margin="10,5" Height="30" VerticalAlignment="Bottom"/>
         <TextBlock Grid.Row="1" Grid.Column="3" Text="Ćwiczenie" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Margin="23,30,23,43"/>
-        <ComboBox x:Name="ExerciseFiltr" Grid.Row="1" Grid.Column="3" Width="180" IsEditable="False" Margin="10,0,102,5" Grid.ColumnSpan="2" Height="30" VerticalAlignment="Bottom"/>
+        <ComboBox x:Name="ExerciseFilter" Grid.Row="1" Grid.Column="3" Width="180" IsEditable="False" Margin="10,0,102,5" Grid.ColumnSpan="2" Height="30" VerticalAlignment="Bottom"/>
         <TextBlock Grid.Row="1" Grid.Column="4" Text="Data min" FontSize="15" FontWeight="Bold" HorizontalAlignment="Right" Margin="0,0,0,80"/>
-        <DatePicker x:Name="DateMinFiltr" Grid.Row="1" Grid.Column="4" FontSize="15" FontWeight="Bold" VerticalAlignment="Bottom" Height="30" Grid.ColumnSpan="2" Margin="92,0,0,50">
+        <DatePicker x:Name="DateMinFilter" Grid.Row="1" Grid.Column="4" FontSize="15" FontWeight="Bold" VerticalAlignment="Bottom" Height="30" Grid.ColumnSpan="2" Margin="92,0,0,50">
             <DatePicker.Resources>
                 <Style TargetType="{x:Type DatePickerTextBox}">
                     <Setter Property="Template">
@@ -75,7 +75,7 @@
             </DatePicker.Resources>
         </DatePicker>
         <TextBlock Grid.Row="1" Grid.Column="4" Text="Data max" FontSize="15" FontWeight="Bold" HorizontalAlignment="Right" Margin="0,50,0,30"/>
-        <DatePicker x:Name="DateMaxFiltr" Grid.Row="1" Grid.Column="4" FontSize="15" FontWeight="Bold" VerticalAlignment="Bottom" Height="30" Grid.ColumnSpan="2" Margin="92,0,0,0">
+        <DatePicker x:Name="DateMaxFilter" Grid.Row="1" Grid.Column="4" FontSize="15" FontWeight="Bold" VerticalAlignment="Bottom" Height="30" Grid.ColumnSpan="2" Margin="92,0,0,0">
             <DatePicker.Resources>
                 <Style TargetType="{x:Type DatePickerTextBox}">
                     <Setter Property="Template">

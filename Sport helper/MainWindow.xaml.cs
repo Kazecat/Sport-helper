@@ -21,6 +21,7 @@ namespace Sport_helper
         static Connection con = new Connection();
         string[] inputFields = { "Dane osobowe", "Ćwiczenie", "Data", "Serie", "Powtórzenia", "Ciężar" };
         public List<string> Ids;
+        private List<string> allNames, allExercise;
         public MainWindow()
         {
             InitializeComponent();
@@ -28,12 +29,30 @@ namespace Sport_helper
             recordsListing = new RecordsListing(con.Connect());
            //MainAsync().Wait();
             LoadRecords();
-            
+            NameFilter.ItemsSource = recordsListing.namesList;
+            ExerciseFilter.ItemsSource = recordsListing.exerciseList;
         }
         //wczytywanie rekordów z tabeli
        private void LoadRecordButton_Click(object sender, RoutedEventArgs e)
         {
+
+            /*
+             * https://api.airtable.com/v0/appwhhhEekTTfh6GM/Exercises?filterByFormula=AND({Exercise}>"Wiosłowanie",{Name}="Bartek")
+             * filterByFormula=Date>"2020-01-24"
+             * filterByFormula=(Search(Upper('c'),Upper({Exercise})))
+             * 
+             */
+            if (NameFilter.SelectedIndex != -1)
+            {
+                recordsListing.filterByFormula = "Name=\"" + NameFilter.Text+"\"";
+            }
+            if(ExerciseFilter.SelectedIndex != -1)
+            {
+                recordsListing.filterByFormula = "Exercise=\"" + ExerciseFilter.Text + "\"";
+            }
+            
             LoadRecords();
+            ClearingFilters();
         }
         //dodawanie rekordu do tabeli
         private void AddRecordButton_Click(object sender, RoutedEventArgs e)
@@ -129,8 +148,11 @@ namespace Sport_helper
 
             //wystwietlanie istniejacych osób
             NameBox.ItemsSource = recordsListing.namesList;
+            
             //wyswietlanie istniejących ćwiczeń
             ExerciseBox.ItemsSource = recordsListing.exerciseList;
+            
+            
         }
 
         private string FindId()
@@ -199,6 +221,15 @@ namespace Sport_helper
             SeriesBox.Text = "";
             RepetitionsBox.Text = "";
             WeightBox.Text = "";
+        }
+
+        private void ClearingFilters()
+        {
+            NameFilter.SelectedIndex = -1;
+            ExerciseFilter.SelectedIndex = -1;
+            DateMinFilter.SelectedDate = DateTime.Parse("01.01.2019");
+            DateMaxFilter.SelectedDate = DateTime.Today;
+            recordsListing.filterByFormula = null;
         }
     }
 
